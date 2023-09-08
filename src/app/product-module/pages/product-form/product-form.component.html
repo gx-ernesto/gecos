@@ -1,0 +1,34 @@
+<mat-card class="container">
+    <mat-card-content>
+        <div class="header">
+            <h1>{{ title }}</h1>
+            <button mat-stroked-button (click)="onGoToList()">Explorador</button>
+        </div>
+        <form  [formGroup]="form" (submit)="onSubmit($event)">
+            <div class="fields">
+                <mat-form-field appearance="outline" class="id">
+                    <mat-label>Identificador</mat-label>
+                    <input matInput type="text" formControlName="id">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="code">
+                    <mat-label>Código</mat-label>
+                    <input matInput type="text" formControlName="code">
+                    <mat-error *ngFor="let error of getErrors('code', 'Código')">
+                        {{ error }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="name">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" formControlName="name">
+                    <mat-error *ngFor="let error of getErrors('name', 'Nombre')">
+                        {{ error }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button
+                type="submit" mat-flat-button color="primary" class="save"
+                *ngIf="showSave" [disabled]="form.invalid"
+            >Guardar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

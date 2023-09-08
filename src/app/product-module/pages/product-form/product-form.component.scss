@@ -1,0 +1,51 @@
+$breakpoint-sm: 576px;
+
+.container {
+    max-width: 768px;
+    min-width: 350px;
+    
+    @media (max-width: $breakpoint-sm) {
+        box-shadow: none;
+    }
+    
+    @media (min-width: $breakpoint-sm) {
+        margin: 60px auto;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 22px;
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    .fields {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    
+        @media (min-width: $breakpoint-sm) {
+            flex-direction: row;
+
+            .id {
+                flex: 2;
+            }
+
+            .code {
+                flex: 1;
+            }
+
+            .name {
+                flex: 3;
+            }
+        }
+    }
+
+    .save {
+        float: right;
+    }
+}
